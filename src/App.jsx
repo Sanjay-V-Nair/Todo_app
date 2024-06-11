@@ -22,10 +22,22 @@ function App() {
     setTodos(newTodoList)
   }
 
+  function handleDeleteTodo(index) {
+    const newTodoList = todos.filter((todo, todoIndux) => {
+      return todoIndux !== index
+    })
+    setTodos(newTodoList)
+  }
+
+  function handleEditTodo(index) {
+
+  }
+
+
   return (
     <>
       <TodoInput handleAddTodos={handleAddTodos} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
     </>
   )
 }
