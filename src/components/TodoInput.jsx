@@ -1,8 +1,10 @@
 import { useState } from "react"
 
 export default function TodoInput(props) {
-    const { handleAddTodos } = props
-    const [todoValue, setTodoValue] = useState('')
+    const { handleAddTodos, todoValue, setTodoValue } = props
+
+    //Moved to App.jsx for the TodoList to be able to access the todoValue
+    // const [todoValue, setTodoValue] = useState('')
 
     return (
         <header>

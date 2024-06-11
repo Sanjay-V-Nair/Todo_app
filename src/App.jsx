@@ -15,6 +15,7 @@ function App() {
   //   'Have breakfast'
   // ])
   const [todos, setTodos] = useState([])
+  const [todoValue, setTodoValue] = useState('')//Moved from TodoInput.jsx
 
 
   function handleAddTodos(newTodo) {
@@ -30,14 +31,16 @@ function App() {
   }
 
   function handleEditTodo(index) {
-
+    const valueToBeEdited = todos[index]
+    setTodoValue(valueToBeEdited)
+    handleDeleteTodo(index)
   }
 
 
   return (
     <>
-      <TodoInput handleAddTodos={handleAddTodos} />
-      <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
+      <TodoInput todoValue={todoValue} setTodoValue={setTodoValue} handleAddTodos={handleAddTodos} />
+      <TodoList handleEditTodo={handleEditTodo} todos={todos} handleDeleteTodo={handleDeleteTodo} />
     </>
   )
 }
